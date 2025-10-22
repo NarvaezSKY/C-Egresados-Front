@@ -9,7 +9,7 @@ export function StepsSection() {
       title: "Actualiza tus datos",
       description: "Actualiza tus datos en la plataforma de la Agencia Pública de Empleo.",
       linkText: "Ir a la plataforma",
-      linkUrl: "#",
+      linkUrl: "https://ape.sena.edu.co/spe-web/spe/login;jsessionid=3a4Kby4vZGMX_pqIFkL2uzKH9a2YqCM5u6L5iMYlFpfA0iHq3-6_!-83691334",
     },
     {
       number: 2,
@@ -23,7 +23,7 @@ export function StepsSection() {
       number: 3,
       icon: CheckCircle2,
       title: "Genera tu carnet",
-      description: "Ingresa tus datos en el formulario a continuación para generar tu carnet.",
+      description: "Una vez completados los pasos anteriores, ingresa tus datos en el formulario a continuación para generar tu carnet.",
       linkText: null,
       linkUrl: null,
     },
@@ -32,7 +32,7 @@ export function StepsSection() {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
-        <h3 className="mb-8 text-center text-2xl font-bold text-[#003876]">Pasos para generar tu carnet</h3>
+        <h3 className="mb-8 text-center text-3xl font-bold text-[#003876]">Para generar tu carnet debes:</h3>
         <div className="grid gap-6 md:grid-cols-3">
           {steps.map((step) => (
             <Card
@@ -58,6 +58,7 @@ export function StepsSection() {
                 <a
                   href={step.linkUrl || "#"}
                   className="inline-flex items-center text-sm font-medium text-[#39b54a] hover:text-[#009639]"
+                  target="_blank"
                 >
                   {step.linkText}
                   <svg className="ml-1 h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

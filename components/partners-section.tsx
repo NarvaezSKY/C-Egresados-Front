@@ -3,35 +3,18 @@ import { Card } from "@/components/ui/card"
 export function PartnersSection() {
   const partnerCategories = [
     {
-      title: "Universidades",
+      title: "Instituciones de Educación Superior",
       partners: [
-        { name: "Universidad del Cauca", logo: "/universidad-cauca-logo.jpg" },
-        { name: "Universidad Cooperativa", logo: "/universidad-cooperativa-logo.jpg" },
-        { name: "UNAD", logo: "/unad-logo.jpg" },
-      ],
-    },
-    {
-      title: "Almacenes de Cadena",
-      partners: [
-        { name: "Éxito", logo: "/exito-store-logo.jpg" },
-        { name: "Falabella", logo: "/falabella-logo.jpg" },
-        { name: "Alkosto", logo: "/alkosto-logo.jpg" },
-      ],
-    },
-    {
-      title: "Restaurantes",
-      partners: [
-        { name: "Restaurante 1", logo: "/restaurant-logo.png" },
-        { name: "Restaurante 2", logo: "/restaurant-logo-2.png" },
-        { name: "Restaurante 3", logo: "/restaurant-logo-3.png" },
-      ],
-    },
-    {
-      title: "Otras Entidades",
-      partners: [
-        { name: "Entidad 1", logo: "/generic-company-logo.png" },
-        { name: "Entidad 2", logo: "/abstract-logo-geometric.png" },
-        { name: "Entidad 3", logo: "/abstract-logo-design-3.png" },
+        { name: "Fundación Universitaria de Popayán", logo: "/LOGOS_IES/Logo FUP_Mesa de trabajo 1 copia.png" },
+        { name: "Universidad Cooperativa de Colombia", logo: "/LOGOS_IES/logo_UNiversidad Cooperativa_2018(CURVAS)-01.png" },
+        { name: "Universidad Nacional Abierta y a Distancia - UNAD", logo: "/LOGOS_IES/Logo UNAD.jpeg" },
+        { name: "Corporación Universitaria Iberoamericana", logo: "/LOGOS_IES/Logo Ibero.jpeg" },
+        { name: "Politécnico Grancolombiano", logo: "/LOGOS_IES/Logo Politécnico.jpeg" },
+        { name: "Universidad Autónoma del Cauca", logo: "/LOGOS_IES/Logo Uniautónoma para fondos blancos.png" },
+        { name: "Universidad Mariana", logo: "/LOGOS_IES/Logo Unimayo.png" },
+        { name: "Universidad Internacional de La Rioja", logo: "/LOGOS_IES/Logo UNIR.jpeg" },
+        { name: "Universidad de Comfacauca", logo: "/LOGOS_IES/Logo Unicomfacauca_Mesa de trabajo 1 copia.png" },
+        { name: "Armada de Colombia", logo: "/LOGOS_IES/logo Aramda de Colombia.jpeg" },
       ],
     },
   ]
@@ -57,7 +40,8 @@ export function PartnersSection() {
                     <img
                       src={partner.logo || "/placeholder.svg"}
                       alt={partner.name}
-                      className="h-16 w-auto object-contain grayscale transition-all hover:grayscale-0"
+                      width={"150px"}
+                      height={"100px"}
                     />
                   </Card>
                 ))}

@@ -25,11 +25,28 @@ export class CarnetRepositoryImpl implements CarnetRepository {
         message: 'Error al obtener el carnet',
       };
     } catch (error: any) {
+      // Intentar leer la respuesta JSON del backend
+      let backendError = null;
+      try {
+        if (error.response?.data) {
+          // Si la respuesta es un blob, convertirlo a texto
+          if (error.response.data instanceof Blob) {
+            const text = await error.response.data.text();
+            backendError = JSON.parse(text);
+          } else {
+            backendError = error.response.data;
+          }
+        }
+      } catch (parseError) {
+        // Si no se puede parsear, usar el error original
+      }
+
       // Manejo de errores específicos
       if (error.response?.status === 404) {
         return {
           success: false,
-          message: 'Carnet no encontrado',
+          message: backendError?.message || 'Carnet no encontrado',
+          error: backendError?.error || 'Carnet no encontrado',
           code: 'CARNET_NOT_FOUND',
         };
       }
@@ -37,14 +54,25 @@ export class CarnetRepositoryImpl implements CarnetRepository {
       if (error.response?.status === 400) {
         return {
           success: false,
-          message: 'Datos inválidos o verificación reCAPTCHA fallida',
+          message: backendError?.message || 'Datos inválidos o verificación reCAPTCHA fallida',
+          error: backendError?.error || 'Datos inválidos o verificación reCAPTCHA fallida',
           code: 'INVALID_DATA',
+        };
+      }
+
+      if (error.response?.status === 500) {
+        return {
+          success: false,
+          message: backendError?.message || 'Error interno del servidor',
+          error: backendError?.error || 'Error interno del servidor',
+          code: 'INTERNAL_ERROR',
         };
       }
 
       return {
         success: false,
-        message: error.message || 'Error interno del servidor',
+        message: backendError?.message || error.message || 'Error interno del servidor',
+        error: backendError?.error || error.message || 'Error interno del servidor',
         code: 'INTERNAL_ERROR',
       };
     }

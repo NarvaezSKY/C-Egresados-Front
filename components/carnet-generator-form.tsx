@@ -162,7 +162,7 @@ export function CarnetGeneratorForm() {
         <div className="rounded-lg bg-[#fdb913]/10 p-4">
           <p className="text-center text-sm text-[#003876]">
             <span className="font-semibold">Nota:</span> Este carnet será válido por{" "}
-            <span className="font-bold">12 meses</span>
+            <span className="font-bold">X meses</span>
           </p>
         </div>
       </form>

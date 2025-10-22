@@ -16,5 +16,6 @@ export interface GetCarnetResponse {
 export interface CarnetError {
   success: false;
   message: string;
+  error?: string;
   code?: string;
 }

@@ -43,7 +43,7 @@ export const useCarnetStore = create<CarnetState>((set, get) => ({
         const error = result as CarnetError;
         set({ 
           isLoading: false, 
-          error: error.message,
+          error: error.error,
           success: false 
         });
       }

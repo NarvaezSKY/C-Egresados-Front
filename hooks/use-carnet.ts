@@ -23,7 +23,7 @@ export const useCarnet = () => {
     if (error) {
       const timer = setTimeout(() => {
         clearError();
-      }, 5000);
+      }, 10000);
 
       return () => clearTimeout(timer);
     }
@@ -34,7 +34,7 @@ export const useCarnet = () => {
     if (success) {
       const timer = setTimeout(() => {
         reset();
-      }, 3000);
+      }, 8000);
 
       return () => clearTimeout(timer);
     }
