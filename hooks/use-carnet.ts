@@ -13,8 +13,8 @@ export const useCarnet = () => {
   } = useCarnetStore();
 
   // Función para descargar el carnet
-  const handleDownloadCarnet = useCallback(async (cedula: string, ficha: string, recaptchaToken?: string) => {
-    const request: GetCarnetRequest = { cedula, ficha, recaptchaToken };
+  const handleDownloadCarnet = useCallback(async (cedula: string, recaptchaToken?: string) => {
+    const request: GetCarnetRequest = { cedula, recaptchaToken };
     await downloadCarnet(request);
   }, [downloadCarnet]);
 

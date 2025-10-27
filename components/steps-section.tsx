@@ -3,27 +3,27 @@ import { Card } from "@/components/ui/card"
 
 export function StepsSection() {
   const steps = [
+    // {
+    //   number: 1,
+    //   icon: Link2,
+    //   title: "Actualiza tus datos",
+    //   description: "Actualiza tus datos en la plataforma de la Agencia Pública de Empleo.",
+    //   linkText: "Ir a la plataforma",
+    //   linkUrl: "https://ape.sena.edu.co/spe-web/spe/login;jsessionid=3a4Kby4vZGMX_pqIFkL2uzKH9a2YqCM5u6L5iMYlFpfA0iHq3-6_!-83691334",
+    // },
     {
       number: 1,
-      icon: Link2,
-      title: "Actualiza tus datos",
-      description: "Actualiza tus datos en la plataforma de la Agencia Pública de Empleo.",
-      linkText: "Ir a la plataforma",
-      linkUrl: "https://ape.sena.edu.co/spe-web/spe/login;jsessionid=3a4Kby4vZGMX_pqIFkL2uzKH9a2YqCM5u6L5iMYlFpfA0iHq3-6_!-83691334",
-    },
-    {
-      number: 2,
       icon: FileText,
       title: "Contesta la encuesta",
       description: "Completa la encuesta de egresados del SENA Regional Cauca.",
       linkText: "Ir a la encuesta",
-      linkUrl: "#",
+      linkUrl: "https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=gcPCyy4vk02R0VBskxas5--QZlwVX_1BvWGUcGpoGEpURFJWS1IxRk1FRjFWVjBZRlREMDVLNjdMQy4u&Token=deadaf0a699e4c0dbce5b57adf8c3015",
     },
     {
-      number: 3,
+      number: 2,
       icon: CheckCircle2,
-      title: "Genera tu carnet",
-      description: "Una vez completados los pasos anteriores, ingresa tus datos en el formulario a continuación para generar tu carnet.",
+      title: "Genera tu carné",
+      description: "Una vez completada la encuesta, ingresa tus datos en el formulario a continuación para generar tu carné.",
       linkText: null,
       linkUrl: null,
     },
@@ -32,8 +32,8 @@ export function StepsSection() {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
-        <h3 className="mb-8 text-center text-3xl font-bold text-[#003876]">Para generar tu carnet debes:</h3>
-        <div className="grid gap-6 md:grid-cols-3">
+        <h3 className="mb-8 text-center text-3xl font-bold text-[#003876]">Para generar tu carné debes:</h3>
+        <div className="grid gap-6 md:grid-cols-2">
           {steps.map((step) => (
             <Card
               key={step.number}

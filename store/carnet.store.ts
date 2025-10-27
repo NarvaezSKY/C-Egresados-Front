@@ -32,7 +32,7 @@ export const useCarnetStore = create<CarnetState>((set, get) => ({
         const url = window.URL.createObjectURL(blob);
         const link = document.createElement('a');
         link.href = url;
-        link.download = `carnet_${request.cedula}_${request.ficha}.pdf`;
+        link.download = `carnet_${request.cedula}.pdf`;
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);

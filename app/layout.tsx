@@ -7,10 +7,10 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Carnet de Egresado SENA - Regional Cauca',
-  description: 'Genera tu carnet digital de egresado del SENA y accede a beneficios exclusivos con nuestros aliados',
+  title: 'Carné de Egresado SENA - Regional Cauca',
+  description: 'Genera tu carné digital de egresado del SENA y accede a beneficios exclusivos con nuestros aliados',
   generator: 'SENA Regional Cauca',
-  keywords: ['SENA', 'Carnet', 'Egresado', 'Regional Cauca', 'Educación'],
+  keywords: ['SENA', 'Carné', 'Egresado', 'Regional Cauca', 'Educación'],
   authors: [{ name: 'SENA Regional Cauca' }],
   icons: {
     icon: '/favicon.ico',

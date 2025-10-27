@@ -14,7 +14,6 @@ import ReCAPTCHA from "react-google-recaptcha"
 
 export function CarnetGeneratorForm() {
   const [cedula, setCedula] = useState("")
-  const [ficha, setFicha] = useState("")
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
   
   const recaptchaRef = useRef<ReCAPTCHA>(null)
@@ -28,7 +27,7 @@ export function CarnetGeneratorForm() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     
-    if (!cedula.trim() || !ficha.trim()) {
+    if (!cedula.trim()) {
       return
     }
 
@@ -37,7 +36,7 @@ export function CarnetGeneratorForm() {
       return
     }
 
-    await downloadCarnet(cedula.trim(), ficha.trim(), recaptchaToken)
+    await downloadCarnet(cedula.trim(), recaptchaToken)
     
     // Reset reCAPTCHA después del envío
     if (recaptchaRef.current) {
@@ -54,7 +53,7 @@ export function CarnetGeneratorForm() {
         </div>
         <div>
           <h3 className="text-xl font-bold text-[#003876]">Ingresa tus datos</h3>
-          <p className="text-sm text-gray-600">Completa el formulario para generar tu carnet</p>
+          <p className="text-sm text-gray-600">Completa el formulario para generar tu carné</p>
         </div>
       </div>
 
@@ -75,22 +74,6 @@ export function CarnetGeneratorForm() {
           />
         </div>
 
-        {/* Ficha Field */}
-        <div className="space-y-2">
-          <Label htmlFor="ficha" className="text-sm font-medium text-gray-700">
-            Número de Ficha
-          </Label>
-          <Input
-            id="ficha"
-            type="text"
-            placeholder="Ej: 2345678"
-            value={ficha}
-            onChange={(e) => setFicha(e.target.value)}
-            required
-            className="h-12 border-2 border-gray-200 focus:border-[#39b54a] focus:ring-[#39b54a]"
-          />
-        </div>
-
         {/* Error Alert */}
         {error && (
           <Alert variant="destructive">
@@ -106,7 +89,7 @@ export function CarnetGeneratorForm() {
           <Alert className="border-green-200 bg-green-50 text-green-800">
             <CheckCircle2 className="h-4 w-4 text-green-600" />
             <AlertDescription>
-              ¡Carnet descargado exitosamente!
+              ¡Carné descargado exitosamente!
             </AlertDescription>
           </Alert>
         )}
@@ -144,7 +127,7 @@ export function CarnetGeneratorForm() {
           ) : (
             <span className="flex items-center gap-2">
               <Download className="h-5 w-5" />
-              Descargar Carnet
+              Descargar Carné
             </span>
           )}
         </Button>
@@ -161,7 +144,7 @@ export function CarnetGeneratorForm() {
         {/* Validity Notice */}
         <div className="rounded-lg bg-[#fdb913]/10 p-4">
           <p className="text-center text-sm text-[#003876]">
-            <span className="font-semibold">Nota:</span> Este carnet será válido por{" "}
+            <span className="font-semibold">Nota:</span> Este carné será válido por{" "}
             <span className="font-bold">X meses</span>
           </p>
         </div>
