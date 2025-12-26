@@ -36,7 +36,7 @@ export interface CarnetInfo {
   id: string;
   cedula: string;
   ficha: number;
-  nombreCompleto: string;
+  nombre: string;
   programa: string;
   fechaGeneracion: string;
   fechaVencimiento: string;
@@ -60,7 +60,7 @@ export interface VerifyCarnetValidResponse {
 export interface VerifyCarnetInvalidResponse {
   valid: false;
   message: string;
-  status: 'expired' | 'not_found' | 'inactive';
+  status: 'expirado' | 'not_found' | 'inactive';
   carnet?: CarnetInfo; // Puede estar presente si el carnet existe pero está vencido
   type: 'carnet_validation';
 }

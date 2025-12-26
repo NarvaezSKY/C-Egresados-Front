@@ -134,12 +134,25 @@ export function VerificationPage({ token }: VerificationPageProps) {
                         </span>
                       </div>
                     )}
+                    {!verificationResult.valid && verificationResult.status === 'expirado' && verificationResult.carnet?.fechaVencimiento && (
+                      <div className="mt-4 pt-4 border-t border-destructive/20">
+                        <div className="flex items-center gap-2">
+                          <Calendar className="h-5 w-5 text-destructive" />
+                          <div>
+                            <p className="text-sm text-muted-foreground">Fecha de Vencimiento</p>
+                            <p className="font-semibold text-destructive text-lg">
+                              {formatDate(verificationResult.carnet.fechaVencimiento)}
+                            </p>
+                          </div>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               </Card>
 
-              {/* Carnet Information */}
-              {verificationResult.carnet && (
+              {/* Carnet Information - Only show if valid */}
+              {verificationResult.valid && verificationResult.carnet && (
                 <>
                   <Card className="p-6">
                     <h4 className="text-lg font-semibold mb-4 flex items-center gap-2">
@@ -149,7 +162,7 @@ export function VerificationPage({ token }: VerificationPageProps) {
                     <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-1">
                         <p className="text-sm text-muted-foreground">Nombre Completo</p>
-                        <p className="font-semibold">{verificationResult.carnet.nombreCompleto}</p>
+                        <p className="font-semibold">{verificationResult.carnet.nombre}</p>
                       </div>
                       <div className="space-y-1">
                         <p className="text-sm text-muted-foreground">Cédula</p>
@@ -179,7 +192,7 @@ export function VerificationPage({ token }: VerificationPageProps) {
                       </div>
                       <div className="space-y-1">
                         <p className="text-sm text-muted-foreground">Fecha de Vencimiento</p>
-                        <p className={`font-semibold ${!verificationResult.valid ? "text-destructive" : ""}`}>
+                        <p className="font-semibold">
                           {formatDate(verificationResult.carnet.fechaVencimiento)}
                         </p>
                       </div>
@@ -202,21 +215,31 @@ export function VerificationPage({ token }: VerificationPageProps) {
                 </>
               )}
 
-              {/* Warning for expired/invalid cards */}
+              {/* Warning for expirado/invalid cards */}
               {!verificationResult.valid && (
                 <Card className="p-6 border-2 border-amber-500 bg-amber-500/5">
                   <div className="flex items-start gap-3">
                     <AlertTriangle className="h-5 w-5 text-amber-600 mt-0.5" />
-                    <div>
+                    <div className="flex-1">
                       <h4 className="font-semibold text-amber-900 dark:text-amber-100 mb-1">
-                        {verificationResult.status === 'expired' ? 'Carnet Vencido' : 'Carnet No Válido'}
+                        {verificationResult.status === 'expirado' ? 'Carné Vencido' : 'Carnet No Válido'}
                       </h4>
-                      <p className="text-sm text-amber-800 dark:text-amber-200">
-                        {verificationResult.status === 'expired' 
+                      <p className="text-sm text-amber-800 dark:text-amber-200 mb-3">
+                        {verificationResult.status === 'expirado' 
                           ? 'Este carnet ha expirado y ya no es válido para obtener beneficios. Por favor, genere un nuevo carnet si es elegible.'
                           : 'Este carnet no es válido o no se pudo verificar su autenticidad.'
                         }
                       </p>
+                      {verificationResult.status === 'expirado' && verificationResult.carnet?.fechaVencimiento && (
+                        <div className="mt-3 pt-3 border-t border-amber-200 dark:border-amber-800">
+                          <div className="flex items-center gap-2 text-sm">
+                            <Calendar className="h-4 w-4 text-amber-700 dark:text-amber-300" />
+                            <span className="text-amber-900 dark:text-amber-100 font-medium">
+                              Fecha de expiración: {formatDate(verificationResult.carnet.fechaVencimiento)}
+                            </span>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </Card>

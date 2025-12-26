@@ -144,8 +144,8 @@ export function CarnetGeneratorForm() {
         {/* Validity Notice */}
         <div className="rounded-lg bg-[#fdb913]/10 p-4">
           <p className="text-center text-sm text-[#003876]">
-            <span className="font-semibold">Nota:</span> Este carné será válido por{" "}
-            <span className="font-bold">X meses</span>
+            <span className="font-semibold">Nota:</span> Este carné será válido hasta el{" "}
+            <span className="font-bold">31 de diciembre del presente año</span>
           </p>
         </div>
       </form>

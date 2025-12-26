@@ -14,8 +14,8 @@ export const metadata: Metadata = {
   authors: [{ name: 'SENA Regional Cauca' }],
   icons: {
     icon: '/favicon.ico',
-    shortcut: '/favicon-16x16.png',
-    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
+    apple: '/favicon.ico',
   },
 }
 
