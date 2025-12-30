@@ -17,7 +17,7 @@ export function StepsSection() {
       title: "Contesta la encuesta",
       description: "Completa la encuesta de egresados del SENA Regional Cauca.",
       linkText: "Ir a la encuesta",
-      linkUrl: "https://forms.office.com/Pages/DesignPageV2.aspx?subpage=design&FormId=gcPCyy4vk02R0VBskxas5--QZlwVX_1BvWGUcGpoGEpURFJWS1IxRk1FRjFWVjBZRlREMDVLNjdMQy4u&Token=deadaf0a699e4c0dbce5b57adf8c3015",
+      linkUrl: "https://forms.office.com/r/5UeaT4qXN6?origin=lprLink",
     },
     {
       number: 2,
