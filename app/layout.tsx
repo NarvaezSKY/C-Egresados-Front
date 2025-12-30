@@ -13,9 +13,9 @@ export const metadata: Metadata = {
   keywords: ['SENA', 'Carné', 'Egresado', 'Regional Cauca', 'Educación'],
   authors: [{ name: 'SENA Regional Cauca' }],
   icons: {
-    icon: '/favicon.ico',
-    shortcut: '/favicon.ico',
-    apple: '/favicon.ico',
+    icon: '/images/sena-logo-green.png',
+    shortcut: '/images/sena-logo-green.png',
+    apple: '/images/sena-logo-green.png',
   },
 }
 
