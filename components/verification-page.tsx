@@ -253,7 +253,7 @@ export function VerificationPage({ token }: VerificationPageProps) {
       {/* Footer */}
       <footer className="border-t border-border/40 mt-16 py-8 bg-muted/30">
         <div className="container mx-auto px-4 text-center text-sm text-muted-foreground">
-          <p>© 2025 SENA Regional Cauca. Todos los derechos reservados.</p>
+          <p>© 2026 SENA Regional Cauca. Todos los derechos reservados.</p>
         </div>
       </footer>
     </div>

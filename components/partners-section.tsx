@@ -3,18 +3,20 @@ import { Card } from "@/components/ui/card"
 export function PartnersSection() {
   const partnerCategories = [
     {
-      title: "Instituciones de Educación Superior",
+      title: "Empresas aliadas",
       partners: [
-        { name: "Fundación Universitaria de Popayán", logo: "/LOGOS_IES/Logo FUP_Mesa de trabajo 1 copia.png" },
-        { name: "Universidad Cooperativa de Colombia", logo: "/LOGOS_IES/logo_UNiversidad Cooperativa_2018(CURVAS)-01.png" },
-        { name: "Universidad Nacional Abierta y a Distancia - UNAD", logo: "/LOGOS_IES/Logo UNAD.jpeg" },
-        { name: "Corporación Universitaria Iberoamericana", logo: "/LOGOS_IES/Logo Ibero.jpeg" },
-        { name: "Politécnico Grancolombiano", logo: "/LOGOS_IES/Logo Politécnico.jpeg" },
-        { name: "Universidad Autónoma del Cauca", logo: "/LOGOS_IES/Logo Uniautónoma para fondos blancos.png" },
-        { name: "Universidad Mariana", logo: "/LOGOS_IES/Logo Unimayo.png" },
-        { name: "Universidad Internacional de La Rioja", logo: "/LOGOS_IES/Logo UNIR.jpeg" },
-        { name: "Universidad de Comfacauca", logo: "/LOGOS_IES/Logo Unicomfacauca_Mesa de trabajo 1 copia.png" },
-        { name: "Armada de Colombia", logo: "/LOGOS_IES/logo Aramda de Colombia.jpeg" },
+        { name: "ALEJAMIEL", logo: "/empresas/ALEJAMIEL.jpg" },
+        { name: "AMIGA SALUD", logo: "/empresas/AMIGA SALUD.jpg" },
+        { name: "CAFESOLO", logo: "/empresas/CAFESOLO.jpg" },
+        { name: "CARDIOFIT", logo: "/empresas/CARDIOFIT.jpg" },
+        { name: "ECOGLAMPING", logo: "/empresas/ECOGLAMPING.jpg" },
+        { name: "ERIKS", logo: "/empresas/ERIKS.jpg" },
+        { name: "FINCA PARAISO", logo: "/empresas/FINCA PARAISO.jpg" },
+        { name: "GRUPOSURTICAMPO", logo: "/empresas/GRUPOSURTICAMPO.jpg" },
+        { name: "HALOUMI", logo: "/empresas/HALOUMI.webp" },
+        { name: "ORTODONCIA PARA TODOS", logo: "/empresas/ORTODONCIA PARA TODOS.jpg" },
+        { name: "SOPATRI", logo: "/empresas/SOPATRI.jpg" },
+        { name: "VERUTTI", logo: "/empresas/VERUTTI.jpg" },
       ],
     },
   ]
@@ -40,6 +42,7 @@ export function PartnersSection() {
                     <img
                       src={partner.logo || "/placeholder.svg"}
                       alt={partner.name}
+                      className="rounded-md"
                       width={"150px"}
                       height={"100px"}
                     />
