@@ -1,0 +1,1 @@
+export const ENCUESTA_URL = process.env.ENCUESTA_URL;
