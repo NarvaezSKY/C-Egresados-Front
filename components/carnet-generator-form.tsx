@@ -7,6 +7,7 @@ import { Card } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
 import { Alert, AlertDescription } from "@/components/ui/alert"
 import { CreditCard, AlertCircle, CheckCircle2, Download } from "lucide-react"
 import { useCarnet } from "@/hooks/use-carnet"
@@ -15,7 +16,7 @@ import ReCAPTCHA from "react-google-recaptcha"
 export function CarnetGeneratorForm() {
   const [cedula, setCedula] = useState("")
   const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null)
-  
+
   const recaptchaRef = useRef<ReCAPTCHA>(null)
   const { isLoading, error, success, downloadCarnet, clearError } = useCarnet()
 
@@ -26,7 +27,7 @@ export function CarnetGeneratorForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    
+
     if (!cedula.trim()) {
       return
     }
@@ -37,7 +38,7 @@ export function CarnetGeneratorForm() {
     }
 
     await downloadCarnet(cedula.trim(), recaptchaToken)
-    
+
     // Reset reCAPTCHA después del envío
     if (recaptchaRef.current) {
       recaptchaRef.current.reset()
@@ -51,9 +52,34 @@ export function CarnetGeneratorForm() {
         <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#39b54a]">
           <CreditCard className="h-6 w-6 text-white" />
         </div>
-        <div>
-          <h3 className="text-xl font-bold text-[#003876]">Ingresa tus datos</h3>
-          <p className="text-sm text-gray-600">Completa el formulario para generar tu carné</p>
+        <div className="relative  w-full">
+          <div>
+            <h3 className="text-xl font-bold text-[#003876]">Ingresa tus datos</h3>
+            <p className="text-sm text-gray-600">¡Recuerda guardar tu carné!</p>
+          </div>
+          <Popover>
+            <PopoverTrigger asChild>
+              <button 
+                type="button"
+                className="absolute right-0 top-1 flex h-10 w-10 items-center justify-center rounded-full bg-[#39b54a] text-lg font-bold text-white shadow-lg transition-all hover:scale-110 hover:bg-[#009639] hover:shadow-xl"
+              >
+                {3}
+              </button>
+            </PopoverTrigger>
+            <PopoverContent 
+              className="z-50 w-64 rounded-lg border-2 border-[#39b54a] bg-white p-4 shadow-xl"
+              sideOffset={5}
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-[#39b54a]">
+                  <CheckCircle2 className="h-6 w-6 text-white" />
+                </div>
+                <p className="text-sm font-medium text-[#003876]">
+                  Este es el paso 3
+                </p>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
       </div>
 
@@ -66,10 +92,16 @@ export function CarnetGeneratorForm() {
           <Input
             id="cedula"
             type="text"
-            placeholder="Ej: 1234567890"
+            inputMode="numeric"
+            pattern="[0-9]*"
+            placeholder="Ingresa aquí tu número de cédula sin puntos ni comas."
             value={cedula}
-            onChange={(e) => setCedula(e.target.value)}
+            onChange={(e) => {
+              const value = e.target.value.replace(/\D/g, '')
+              setCedula(value)
+            }}
             required
+
             className="h-12 border-2 border-gray-200 focus:border-[#39b54a] focus:ring-[#39b54a]"
           />
         </div>
@@ -93,6 +125,14 @@ export function CarnetGeneratorForm() {
             </AlertDescription>
           </Alert>
         )}
+        {/* reCAPTCHA validation message */}
+        {!recaptchaToken && (
+          <div className="text-center">
+            <p className="text-sm text-gray-500">
+              Completa la verificación reCAPTCHA (No soy un robot) para continuar
+            </p>
+          </div>
+        )}
 
         {/* reCAPTCHA */}
         <div className="flex justify-center">
@@ -105,6 +145,8 @@ export function CarnetGeneratorForm() {
             theme="light"
           />
         </div>
+
+
 
         {/* Submit Button */}
         <Button
@@ -132,14 +174,7 @@ export function CarnetGeneratorForm() {
           )}
         </Button>
 
-        {/* reCAPTCHA validation message */}
-        {!recaptchaToken && (
-          <div className="text-center">
-            <p className="text-sm text-gray-500">
-              Complete la verificación reCAPTCHA para continuar
-            </p>
-          </div>
-        )}
+
 
         {/* Validity Notice */}
         <div className="rounded-lg bg-[#fdb913]/10 p-4">
