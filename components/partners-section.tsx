@@ -8,7 +8,7 @@ export function PartnersSection() {
     {
       title: "Empresas aliadas",
       partners: [
-        { name: "CAFESOLO", type: "Restaurante/Cafetería", logo: "/empresas/CAFESOLO.jpg", benefits: "20% de descuento en horario de la mañana y 10% en horario de la tarde - noche", url: "https://www.facebook.com/SoloCafeSolo/" },
+        { name: "CAFÉ SOLO", type: "Restaurante/Cafetería", logo: "/empresas/CAFESOLO.jpg", benefits: "20% de descuento en horario de la mañana y 10% en horario de la tarde - noche", url: "https://www.facebook.com/SoloCafeSolo/" },
 
         { name: "HALOUMI", type: "Restaurante", logo: "/empresas/HALOUMI.png", benefits: "10% de descuento de Lunes a Jueves", url: "https://www.instagram.com/haloumiburger0/" },
 
