@@ -3,6 +3,7 @@ import { StepsSection } from "@/components/steps-section"
 import { PartnersSection } from "@/components/partners-section"
 import Image from "next/image"
 import type { Metadata } from 'next'
+import { Separator } from "@/components/ui/separator"
 
 export const metadata: Metadata = {
   title: 'Generar Carné de Egresado | SENA Regional Cauca',
@@ -51,10 +52,19 @@ export default function Home() {
       <PartnersSection />
 
       {/* Footer */}
-      <footer className="border-t border-gray-200 bg-[#003876] py-8 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <p className="text-sm">© {new Date().getFullYear()} SENA Regional Cauca. Todos los derechos reservados.</p>
+      <footer className="border-t border-gray-200 bg-[#003876] py-8 text-white grid grid-cols-1 md:grid-cols-3">
+        <Image src="/images/sena-logo-white.png" alt="SENA Logo" width={95} height={95} className="mx-auto my-auto md:py-0"/>
+        <div className="container mx-auto px-4 text-center space-y-1.5">
+          <h3 className="text-lg font-bold">Contáctanos</h3>
+          <Separator orientation="horizontal" className="my-2 bg-white/70" />
+          <p className="text-sm">Consulta tus certificaciones como egresado SENA aquí: <a href="https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer" className="underline" target="_blank" rel="noopener noreferrer">certificados.sena.edu.co</a></p>
+          <p className="text-sm">¿Tienes problemas generando tu carné de egresado? ¿Tienes alguna sugerencia o duda con los beneficios? Puedes contactárnos a través de los canales:</p>
+          <p className="text-sm"> Teléfono WhsatsApp: <a href="https://api.whatsapp.com/send?phone=573225493763" className="underline" target="_blank" rel="noopener noreferrer">3225493763</a>
+          </p>
+          <p className="text-sm">Correo: <a href="mailto:egresadosregcauca@sena.edu.co" className="underline" target="_blank" rel="noopener noreferrer">egresadosregcauca@sena.edu.co</a></p>
+          <p className="text-sm">© {new Date().getFullYear()} <b className="font-semibold">SENA Regional Cauca</b>. Todos los derechos reservados.</p>
         </div>
+          <Image src="/images/LOGOCMR.png" alt="SENA Logo" width={125} height={125} className="mx-auto my-auto md:py-0" />
       </footer>
     </div>
   )
