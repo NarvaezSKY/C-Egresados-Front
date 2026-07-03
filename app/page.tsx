@@ -59,7 +59,7 @@ export default function Home() {
           <Separator orientation="horizontal" className="my-2 bg-white/70" />
           <p className="text-sm">Consulta tus certificaciones como egresado SENA aquí: <a href="https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer" className="underline" target="_blank" rel="noopener noreferrer">certificados.sena.edu.co</a></p>
           <p className="text-sm">¿Tienes problemas generando tu carné de egresado? ¿Tienes alguna sugerencia o duda con los beneficios? Puedes contactárnos a través de los canales:</p>
-          <p className="text-sm"> Teléfono WhsatsApp: <a href="https://api.whatsapp.com/send?phone=573225493763" className="underline" target="_blank" rel="noopener noreferrer">3225493763</a>
+          <p className="text-sm"> Teléfono WhsatsApp: <a href="https://api.whatsapp.com/send?phone=573143084146" className="underline" target="_blank" rel="noopener noreferrer">3143084146</a>
           </p>
           <p className="text-sm">Correo: <a href="mailto:egresadosregcauca@sena.edu.co" className="underline" target="_blank" rel="noopener noreferrer">egresadosregcauca@sena.edu.co</a></p>
           <p className="text-sm">© {new Date().getFullYear()} <b className="font-semibold">SENA Regional Cauca</b>. Todos los derechos reservados.</p>
