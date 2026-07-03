@@ -11,7 +11,6 @@ import {
 import { Button } from "@/components/ui/button"
 import { MessageCircle, HelpCircle, Search, FileQuestion, ChevronRight, ArrowLeft, ExternalLink, Phone, Mail, Copy } from "lucide-react"
 import { cn } from "@/lib/utils"
-import { ENCUESTA_URL } from "@/lib/api/config"
 
 type View = "menu" | "no-encontrado" | "fecha-certificacion" | "no-encuesta" | "ayuda-personalizada"
 
@@ -89,7 +88,7 @@ function ContactCard({ title, description }: { title: string; description: strin
   )
 }
 
-function AssistantContent({ view, onNavigate }: { view: View; onNavigate: (v: View) => void }) {
+function AssistantContent({ view, onNavigate, encuestaUrl }: { view: View; onNavigate: (v: View) => void; encuestaUrl?: string }) {
   if (view === "no-encontrado") {
     return (
       <div className="space-y-4">
@@ -184,7 +183,7 @@ function AssistantContent({ view, onNavigate }: { view: View; onNavigate: (v: Vi
             <strong>Importante:</strong> Sin completar la encuesta no podrás generar tu carné de egresado.
           </p>
           <a
-            href={ENCUESTA_URL}
+            href={encuestaUrl || "#"}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[#39b54a] px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#009639]"
@@ -242,7 +241,7 @@ function AssistantContent({ view, onNavigate }: { view: View; onNavigate: (v: Vi
   )
 }
 
-export function AssistantButton() {
+export function AssistantButton({ encuestaUrl }: { encuestaUrl?: string }) {
   const [open, setOpen] = React.useState(false)
   const [view, setView] = React.useState<View>("menu")
 
@@ -279,7 +278,7 @@ export function AssistantButton() {
           </DialogDescription>
         </DialogHeader>
 
-        <AssistantContent view={view} onNavigate={setView} />
+        <AssistantContent view={view} onNavigate={setView} encuestaUrl={encuestaUrl} />
       </DialogContent>
     </Dialog>
   )
