@@ -9,43 +9,77 @@ import {
   DialogDescription,
 } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
-import { MessageCircle, HelpCircle, Search, FileQuestion, ChevronRight, ArrowLeft, ExternalLink, Phone, Mail } from "lucide-react"
+import { MessageCircle, HelpCircle, Search, FileQuestion, ChevronRight, ArrowLeft, ExternalLink, Phone, Mail, Copy } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { ENCUESTA_URL } from "@/lib/api/config"
 
 type View = "menu" | "no-encontrado" | "fecha-certificacion" | "no-encuesta" | "ayuda-personalizada"
 
 function ContactCard({ title, description }: { title: string; description: string }) {
+  const [copiedPhone, setCopiedPhone] = React.useState(false)
+  const [copiedEmail, setCopiedEmail] = React.useState(false)
+
+  async function copyToClipboard(text: string, type: "phone" | "email") {
+    await navigator.clipboard.writeText(text)
+    if (type === "phone") {
+      setCopiedPhone(true)
+      setTimeout(() => setCopiedPhone(false), 2000)
+    } else {
+      setCopiedEmail(true)
+      setTimeout(() => setCopiedEmail(false), 2000)
+    }
+  }
+
   return (
     <div className="space-y-4">
       <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
         <h4 className="mb-2 font-semibold text-amber-900">{title}</h4>
         <p className="mb-3 text-sm text-amber-800">{description}</p>
         <div className="space-y-2 text-sm">
-          <a
-            href="https://api.whatsapp.com/send?phone=573143084146"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-md bg-white p-3 text-[#003876] shadow-sm transition-colors hover:bg-[#39b54a]/10"
-          >
-            <Phone className="h-4 w-4 text-[#39b54a]" />
-            <span>
-              <strong>Teléfono / WhatsApp:</strong> 3143084146
-            </span>
-            <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
-          </a>
-          <a
-            href="mailto:egresadosregcauca@sena.edu.co"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 rounded-md bg-white p-3 text-[#003876] shadow-sm transition-colors hover:bg-[#39b54a]/10"
-          >
-            <Mail className="h-4 w-4 text-[#39b54a]" />
-            <span>
-              <strong>Correo:</strong> egresadosregcauca@sena.edu.co
-            </span>
-            <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
-          </a>
+          <div className="flex items-center gap-2 rounded-md bg-white p-3 text-[#003876] shadow-sm">
+            <a
+              href="https://api.whatsapp.com/send?phone=573143084146"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 flex-1 transition-colors hover:text-[#39b54a]"
+            >
+              <Phone className="h-4 w-4 text-[#39b54a]" />
+              <span>
+                <strong>Teléfono / WhatsApp:</strong> 3143084146
+              </span>
+              <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+            </a>
+            <button
+              type="button"
+              onClick={() => copyToClipboard("3143084146", "phone")}
+              className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
+              title="Copiar número"
+            >
+              {copiedPhone ? <span className="text-[#39b54a]">Copiado</span> : <Copy className="h-4 w-4" />}
+            </button>
+          </div>
+          <div className="flex items-center gap-2 rounded-md bg-white p-3 text-[#003876] shadow-sm">
+            <a
+              href="mailto:egresadosregcauca@sena.edu.co"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 flex-1 transition-colors hover:text-[#39b54a]"
+            >
+              <Mail className="h-4 w-4 text-[#39b54a]" />
+              <span>
+                <strong>Correo:</strong> egresadosregcauca@sena.edu.co
+              </span>
+              <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+            </a>
+            <button
+              type="button"
+              onClick={() => copyToClipboard("egresadosregcauca@sena.edu.co", "email")}
+              className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
+              title="Copiar correo"
+            >
+              {copiedEmail ? <span className="text-[#39b54a]">Copiado</span> : <Copy className="h-4 w-4" />}
+            </button>
+          </div>
         </div>
       </div>
       <p className="text-center text-xs text-gray-500">
@@ -150,7 +184,7 @@ function AssistantContent({ view, onNavigate }: { view: View; onNavigate: (v: Vi
             <strong>Importante:</strong> Sin completar la encuesta no podrás generar tu carné de egresado.
           </p>
           <a
-            href={ENCUESTA_URL || "#"}
+            href={ENCUESTA_URL}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-md bg-[#39b54a] px-4 py-2 text-sm font-medium text-white shadow-sm transition-colors hover:bg-[#009639]"
