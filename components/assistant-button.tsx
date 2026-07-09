@@ -31,7 +31,7 @@ function ContactCard({ title, description }: { title: string; description: strin
 
   return (
     <div className="space-y-4">
-      <div className="rounded-lg border border-amber-200 bg-amber-50 p-4">
+      <div className="overflow-x-hidden rounded-lg border border-amber-200 bg-amber-50 p-4">
         <h4 className="mb-2 font-semibold text-amber-900">{title}</h4>
         <p className="mb-3 text-sm text-amber-800">{description}</p>
         <div className="space-y-2 text-sm">
@@ -42,16 +42,16 @@ function ContactCard({ title, description }: { title: string; description: strin
               rel="noopener noreferrer"
               className="flex items-center gap-2 flex-1 transition-colors hover:text-[#39b54a]"
             >
-              <Phone className="h-4 w-4 text-[#39b54a]" />
-              <span>
+              <Phone className="h-4 w-4 flex-shrink-0 text-[#39b54a]" />
+              <span className="break-all text-xs sm:text-sm">
                 <strong>Teléfono / WhatsApp:</strong> 3143084146
               </span>
-              <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+              <ExternalLink className="h-3 w-3 flex-shrink-0 text-gray-400 sm:ml-auto" />
             </a>
             <button
               type="button"
               onClick={() => copyToClipboard("3143084146", "phone")}
-              className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
+              className="flex-shrink-0 flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
               title="Copiar número"
             >
               {copiedPhone ? <span className="text-[#39b54a]">Copiado</span> : <Copy className="h-4 w-4" />}
@@ -64,16 +64,16 @@ function ContactCard({ title, description }: { title: string; description: strin
               rel="noopener noreferrer"
               className="flex items-center gap-2 flex-1 transition-colors hover:text-[#39b54a]"
             >
-              <Mail className="h-4 w-4 text-[#39b54a]" />
-              <span>
+              <Mail className="h-4 w-4 flex-shrink-0 text-[#39b54a]" />
+              <span className="break-all text-xs sm:text-sm">
                 <strong>Correo:</strong> egresadosregcauca@sena.edu.co
               </span>
-              <ExternalLink className="ml-auto h-3 w-3 text-gray-400" />
+              <ExternalLink className="h-3 w-3 flex-shrink-0 text-gray-400 sm:ml-auto" />
             </a>
             <button
               type="button"
               onClick={() => copyToClipboard("egresadosregcauca@sena.edu.co", "email")}
-              className="flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
+              className="flex-shrink-0 flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
               title="Copiar correo"
             >
               {copiedEmail ? <span className="text-[#39b54a]">Copiado</span> : <Copy className="h-4 w-4" />}
