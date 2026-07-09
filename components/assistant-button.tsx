@@ -8,7 +8,7 @@ import {
   DialogTitle,
   DialogDescription,
 } from "@/components/ui/dialog"
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
 import { MessageCircle, HelpCircle, Search, FileQuestion, ChevronRight, ArrowLeft, ExternalLink, Phone, Mail, Copy } from "lucide-react"
 import { cn } from "@/lib/utils"
 
@@ -204,7 +204,7 @@ function AssistantContent({ view, onNavigate, encuestaUrl }: { view: View; onNav
         className="flex w-full items-center gap-3 rounded-lg border border-gray-200 p-3 text-left text-sm text-gray-700 shadow-xs transition-all hover:border-[#39b54a] hover:bg-[#39b54a]/5 hover:text-[#003876]"
       >
         <FileQuestion className="h-5 w-5 flex-shrink-0 text-[#39b54a]" />
-        <span className="flex-1 font-medium">Carné no encontrado</span>
+        <span className="flex-1 font-medium">"Carné no encontrado"</span>
         <ChevronRight className="h-4 w-4 text-gray-400" />
       </button>
 
@@ -224,7 +224,7 @@ function AssistantContent({ view, onNavigate, encuestaUrl }: { view: View; onNav
         className="flex w-full items-center gap-3 rounded-lg border border-gray-200 p-3 text-left text-sm text-gray-700 shadow-xs transition-all hover:border-[#39b54a] hover:bg-[#39b54a]/5 hover:text-[#003876]"
       >
         <HelpCircle className="h-5 w-5 flex-shrink-0 text-[#39b54a]" />
-        <span className="flex-1 font-medium">El egresado no ha contestado la encuesta</span>
+        <span className="flex-1 font-medium">"El egresado no ha contestado la encuesta"</span>
         <ChevronRight className="h-4 w-4 text-gray-400" />
       </button>
 
@@ -259,12 +259,12 @@ export function AssistantButton({ encuestaUrl }: { encuestaUrl?: string }) {
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          "group fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#8b1d6f] px-5 py-3 text-sm font-medium text-white shadow-lg transition-all hover:bg-[#6d1658] hover:shadow-xl",
+          "group fixed bottom-6 right-6 z-40 flex items-center gap-2 rounded-full bg-[#8b1d6f]/90 px-5 py-3 text-sm font-medium text-white shadow-lg transition-all hover:bg-[#6d1658] hover:shadow-xl",
           "max-sm:bottom-4 max-sm:right-4 max-sm:px-4 max-sm:py-2.5 max-sm:text-xs cursor-pointer",
         )}
       >
         <MessageCircle className="h-5 w-5 flex-shrink-0" />
-        <span className="hidden sm:inline cursor-pointer">¿Tienes problemas generando tu carné? Haz clic aquí</span>
+        <span className="hidden sm:inline cursor-pointer">¿Tienes problemas generando tu carné? <span className="underline">¡Haz clic aquí!</span></span>
         <span className="sm:hidden">¿Problemas con tu carné?</span>
       </button>
 

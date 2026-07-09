@@ -17,7 +17,10 @@ export default function Home() {
       <header className="border-b border-gray-200 bg-[#8b1d6f]">
         <div className="container mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
-            <Image src="/images/sena-logo-white.png" alt="SENA Logo" width={120} height={60} className="h-16 w-auto" />
+            <div className="flex flex-col items-center gap-1">
+              <Image src="/images/sena-logo-white.png" alt="SENA Logo" width={95} height={95} />
+              <span className="text-center text-sm font-black text-white/90">Regional Cauca</span>
+            </div>
             <div className="text-right">
               <h1 className="text-xl font-bold text-white md:text-2xl">Generación de Carné de Egresado</h1>
               <p className="text-sm text-white">SENA Regional Cauca</p>
@@ -31,7 +34,7 @@ export default function Home() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="mb-4 text-3xl font-bold md:text-4xl text-balance">Obtén tu Carné de Egresado</h2>
           <p className="mx-auto max-w-2xl text-lg text-white/90 text-pretty">
-            Genera tu carné digital de egresado del SENA y accede a beneficios exclusivos con nuestros aliados
+            Genera tu carné digital de egresado del <span className="font-bold">SENA Regional Cauca</span> y accede a beneficios exclusivos con nuestros aliados
           </p>
         </div>
       </section>
@@ -53,9 +56,12 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 bg-[#003876] py-8 text-white grid grid-cols-1 md:grid-cols-3">
-        <Image src="/images/sena-logo-white.png" alt="SENA Logo" width={95} height={95} className="mx-auto my-auto md:py-0"/>
+        <div className="mx-auto my-auto flex flex-col items-center gap-1 md:py-0">
+          <Image src="/images/sena-logo-white.png" alt="SENA Logo" width={95} height={95} />
+          <span className="text-center text-sm font-black text-white/90">Regional Cauca</span>
+        </div>
         <div className="container mx-auto px-4 text-center space-y-1.5">
-          <h3 className="text-lg font-bold">Contáctanos</h3>
+          <h3 className="text-2xl font-bold">Contáctanos:</h3>
           <Separator orientation="horizontal" className="my-2 bg-white/70" />
           <p className="text-sm">Consulta tus certificaciones como egresado SENA aquí: <a href="https://certificados.sena.edu.co/CertificadoDigital/com.sena.consultacer" className="underline" target="_blank" rel="noopener noreferrer">certificados.sena.edu.co</a></p>
           <p className="text-sm">¿Tienes problemas generando tu carné de egresado? ¿Tienes alguna sugerencia o duda con los beneficios? Puedes contactárnos a través de los canales:</p>

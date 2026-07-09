@@ -35,7 +35,7 @@ export function StepsSection() {
   return (
     <section className="py-12">
       <div className="container mx-auto px-4">
-        <h3 className="mb-8 text-center text-3xl font-bold text-[#003876]">
+        <h3 className="mb-8 text-center text-4xl font-extrabold text-[#003876]">
           Para generar tu carné debes:
         </h3>
         <div className="grid gap-6 md:grid-cols-2">
