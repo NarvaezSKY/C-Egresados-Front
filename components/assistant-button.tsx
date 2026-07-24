@@ -37,20 +37,20 @@ function ContactCard({ title, description }: { title: string; description: strin
         <div className="space-y-2 text-sm">
           <div className="flex items-center gap-2 rounded-md bg-white p-3 text-[#003876] shadow-sm">
             <a
-              href="https://api.whatsapp.com/send?phone=573143084146"
+              href="https://api.whatsapp.com/send?phone=573128138165"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 flex-1 transition-colors hover:text-[#39b54a]"
             >
               <Phone className="h-4 w-4 flex-shrink-0 text-[#39b54a]" />
               <span className="break-all text-xs sm:text-sm">
-                <strong>Teléfono / WhatsApp:</strong> 3143084146
+                <strong>Teléfono / WhatsApp:</strong> 3128138165
               </span>
               <ExternalLink className="h-3 w-3 flex-shrink-0 text-gray-400 sm:ml-auto" />
             </a>
             <button
               type="button"
-              onClick={() => copyToClipboard("3143084146", "phone")}
+              onClick={() => copyToClipboard("3128138165", "phone")}
               className="flex-shrink-0 flex items-center gap-1 rounded-md px-2 py-1 text-xs text-gray-500 transition-colors hover:bg-[#39b54a]/10 hover:text-[#39b54a]"
               title="Copiar número"
             >

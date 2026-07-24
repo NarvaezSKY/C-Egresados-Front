@@ -197,7 +197,7 @@ export function PartnersSection() {
 
         <div className="mt-16 rounded-2xl border border-gray-200 bg-white p-8 text-center shadow-sm">
           <h3 className="mb-2 text-2xl font-bold text-[#003876]">
-            ¡Únete a nuestra comunidad de WhatsApp!
+            ¡Únete a nuestro canal de WhatsApp!
           </h3>
           <p className="mx-auto mb-6 max-w-xl text-gray-600 font-semibold">
             Conoce oportunidades laborales, beneficios para egresados SENA y más...
@@ -206,7 +206,7 @@ export function PartnersSection() {
             <img
               src="/community/QR.jpg"
               alt="Código QR Grupo de WhatsApp Egresados SENA Cauca"
-              className="h-64 w-64 rounded-xl object-cover shadow-md ring-4 ring-[#25D366]"
+              className="h-64 w-64 rounded-xl object-cover p-2 shadow-md ring-4 ring-[#25D366]"
               loading="lazy"
             />
           </div>
